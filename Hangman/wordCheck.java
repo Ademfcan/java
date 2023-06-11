@@ -1,0 +1,54 @@
+public class wordCheck {
+    private String word;
+    private char[] answer;
+    private char[] wordSplit;
+    private boolean wordComplete;
+    
+    public wordCheck(String goalWord) {
+        this.word = goalWord.toLowerCase();
+        setup();
+    }
+
+    private void setup() {
+        this.wordSplit = word.toCharArray();
+        this.wordComplete = false;
+        this.answer = new char[word.length()];
+        for (int i = 0; i < this.answer.length; i++) {
+            this.answer[i] = '_';
+        }
+    }
+  
+    public boolean contains(char c) {
+        for (int i = 0; i < this.wordSplit.length; i++) {
+            if (this.wordSplit[i] == c) {
+                this.answer[i] = c;
+                return true;
+            }
+        }
+        this.wordComplete = true;
+        for (char b : answer) {
+            if (b == '_') {
+                this.wordComplete = false;
+                break;
+                
+            }
+            
+        }
+        
+       
+        return false;
+    }
+
+
+    public String getAns() {
+        return new String(answer);
+    }
+    
+    public int getWordLength() {
+        return this.word.length();
+    }
+    
+    public boolean isComplete() {
+        return this.wordComplete;
+    }
+}
