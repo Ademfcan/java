@@ -25,6 +25,6 @@ public class ToDoItem {
     }
 
     public String ToString(){
-        return "The title of this item is " + title + " with the description: " + description + " and it expires on " + expiration.toString();
+        return "The item with the title " + title + " has a description of: " + description + " and  expires on " + expiration.toString();
     }
 }
