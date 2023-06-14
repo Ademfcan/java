@@ -86,6 +86,9 @@ public class HangmanState{
     public int getState(){
         return state;
     }
+    public void reset(){
+        state = 6;
+    }
     
     
         
