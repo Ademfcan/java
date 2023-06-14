@@ -6,14 +6,16 @@ import javax.xml.validation.ValidatorHandler;
 
 public class ToDoStorage{
     LinkedList<ToDoItem> items;
-
+    CsvReaderWriter readerWriter;
     public ToDoStorage() {
-        items = new LinkedList<ToDoItem>();
-
+        
+        readerWriter = new CsvReaderWriter();
+        items = readerWriter.readFromFile();
     }
 
     public void add(ToDoItem item) {
         items.add(0, item);
+        System.out.println("The item "+ item.getTitle() + " has been added");
     }
 
     public void Remove(String identifier){
@@ -53,9 +55,13 @@ public class ToDoStorage{
     }
 
     public void printAll(){
+        int b = 1;
         if(items.size() > 0){
         for(ToDoItem i : items){
+            
+            System.out.println("\u001B[1mTodo Item #:" + b + ":\u001B[0m");
             System.out.println(i.ToString());
+            b+=1;
         }
         }
         else{
@@ -63,5 +69,10 @@ public class ToDoStorage{
         }
         
     }
+
+    public void FinalizeItems(){
+        readerWriter.writeToFile(items);
+    }
+
 
 }
