@@ -1,11 +1,19 @@
-import java.util.Calendar;
+
+
 import java.util.Date;
 
-public class ToDoItem {
+public class ToDoItem implements Comparable<ToDoItem> {
     private String title;
     private String description;
     private Date expiration;
     private boolean isCompleted;
+
+
+    @Override
+    public int compareTo(ToDoItem other) {
+        return getExpr().compareTo(other.getExpr());
+    }
+
 
     public ToDoItem(String Title, String Description, Date time, boolean MkComplete){
         this.title  = Title;

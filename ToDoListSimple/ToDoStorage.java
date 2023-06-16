@@ -1,8 +1,8 @@
 
+
+import java.util.Collections;
 import java.util.LinkedList;
-import java.util.Date;
-import javax.xml.crypto.Data;
-import javax.xml.validation.ValidatorHandler;
+
 
 public class ToDoStorage{
     LinkedList<ToDoItem> items;
@@ -54,10 +54,13 @@ public class ToDoStorage{
         return (Integer) null;
     }
 
-    public void printAll(){
+    public void printAll(LinkedList<ToDoItem> items1, boolean Y){
+        if(!Y){
+            items1 = items;
+        }
         int b = 1;
         if(items.size() > 0){
-        for(ToDoItem i : items){
+        for(ToDoItem i : items1){
             
             System.out.println("\u001B[1mTodo Item #:" + b + ":\u001B[0m");
             System.out.println(i.ToString());
@@ -70,9 +73,43 @@ public class ToDoStorage{
         
     }
 
+    public LinkedList<ToDoItem> returnSorted(String howToSort){
+        LinkedList<ToDoItem> output = new LinkedList<>(items);
+        if(howToSort.equals("date")){
+            Collections.sort(output);
+        }
+        else if(howToSort.equals("title")){
+            Collections.sort(output);
+        }
+        else{
+            System.out.println("Please make sure you are entering \"date\" or \"title\"");
+        }
+        return output;
+        
+
+        
+        
+    }
+
+    public void removeAll(){
+       if(items.size() > 0){
+        for(ToDoItem i : items){
+            System.out.println(i.getTitle()  + " has been removed");
+            items.remove(findItemId(i.getTitle()));
+            
+        }
+        }
+        else{
+            System.out.println("There are currently no items");
+        }
+        
+    }
+
     public void FinalizeItems(){
         readerWriter.writeToFile(items);
     }
+
+    
 
 
 }

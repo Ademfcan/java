@@ -1,10 +1,9 @@
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-import javax.jws.soap.SOAPBinding;
-import javax.xml.crypto.Data;
 
 public class repl {
     private static boolean isRunning;
@@ -49,7 +48,12 @@ public class repl {
                     search(readToLower);
                     break;
                 case "printall":
+                case "print":
                     printAll();
+                    break;
+                case "sort":
+                case "order":
+                    sort(readToLower);
                     break;
                 case "update":
                     Update(readToLower);
@@ -74,7 +78,7 @@ public class repl {
             System.out.println("The interface is wating for a command \n " +
                     "Some examples of commands are: Add, Remove, PrintAll, Search, Quit");
         } else {
-            System.out.println("Some commands are: Add, Remove, Print All, Search, Quit, //Sort, Update, MkComplete");
+            System.out.println("Some commands are: Add, Remove, Print All, Search, Quit, //Sort, Update, MkComplete(Use help for more info)");
         }
     }
 
@@ -84,10 +88,42 @@ public class repl {
         String ans = scan.nextLine();
         return ans;
 
+
+    }
+    private void sort(String[] input){
+        String sortMethod = "date";
+        String howSorted = input("Sorted by date, title(alphabeticaly)?");
+        if(howSorted.toLowerCase().equals("date")){
+            sortMethod = "date";
+        }
+        else if(howSorted.toLowerCase().equals("title")){
+            sortMethod = "title";
+        }
+        if(input.length<2){
+            
+            storage.printAll(storage.returnSorted(sortMethod), true);
+        }
+        else{
+            storage.printAll(storage.returnSorted(input[1]), true);
+        }
+        
+    }
+
+    private void help(){
+       String helpString = "Available commands and their descriptions:\n" +
+        "add - Add a new item to the ToDoList.\n" +
+        "delete/remove - Delete an item from the ToDoList.\n" +
+        "mkcomplete, markcomplete, or updatecomplete - Mark an item as complete or update its completion status.\n" +
+        "search - Search for specific items in the ToDoList.\n" +
+        "printall or print - display all items in the ToDoList.\n" +
+        "sort or order - Sort the items in the ToDoList based on certain criteria.\n" +
+        "update - Update an existing item in the ToDoList.\n" +
+        "quit - exit the ToDoList application.\n";
+        System.out.println(helpString);
     }
 
     private void printAll() {
-        storage.printAll();
+        storage.printAll(null,false);
 
     }
 
@@ -172,11 +208,18 @@ public class repl {
 
     private void remove(String[] input) {
         if (input.length == 1) {
-            String ident = input("What is the title of the item you want to remove?(Use print all if you dont know)");
+            String ident = input("What is the title of the item you want to remove?(Use print all if you dont know)(* removes all)");
             storage.Remove(ident);
-        } else {
+        } 
+        else {
             for (int i = 1; i < input.length; i++) {
-                storage.Remove(input[i]);
+                if(input[i].equals("*")){
+                    storage.removeAll();
+                    i = input.length +1;
+                }
+                else{
+                    storage.Remove(input[i]);
+                }
             }
         }
 
@@ -199,7 +242,7 @@ public class repl {
             Date date = dateFormat.parse(inputDate);
             return date;
         } catch (Exception e) {
-            // TODO: handle exception
+            
             System.out.println("Invalid date format: " + inputDate);
             // e.printStackTrace();
             return null;
