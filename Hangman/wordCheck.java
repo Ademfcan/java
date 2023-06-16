@@ -19,13 +19,17 @@ public class wordCheck {
     }
   
     public boolean contains(char c) {
-        for (int i = 0; i < this.wordSplit.length; i++) {
-            if (this.wordSplit[i] == c) {
-                this.answer[i] = c;
-                return true;
-            }
+    boolean charFound = false;
+    for (int i = 0; i < this.wordSplit.length; i++) {
+        if (this.wordSplit[i] == c) {
+            this.answer[i] = c;
+            charFound = true;
         }
-        this.wordComplete = true;
+    }
+    return charFound;
+}
+
+    public boolean isComplete(){
         for (char b : answer) {
             if (b == '_') {
                 this.wordComplete = false;
@@ -34,9 +38,7 @@ public class wordCheck {
             }
             
         }
-        
-       
-        return false;
+        return this.wordComplete;
     }
 
 
@@ -48,7 +50,4 @@ public class wordCheck {
         return this.word.length();
     }
     
-    public boolean isComplete() {
-        return this.wordComplete;
-    }
 }

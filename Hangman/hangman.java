@@ -18,16 +18,15 @@ public class hangman {
         sleep.sleep(1);
         System.out.println("Try to correcly guess the word before you die!!");
         sleep.sleep(1);
-        Start();
+        while(Start());
 
     }
 
-    private static void Start() {
-        words = new WordBank(setDifficulty(false));
+    private static boolean Start() {
 
-        String goalWord = words.randomString();
-        wordCheck goal = new wordCheck(goalWord);
-        HangmanState currentGame = new HangmanState();
+        reset();
+
+        
 
         sleep.sleep(2);
         System.out.println(
@@ -36,26 +35,18 @@ public class hangman {
         sleep.sleep(2);
         System.out.println("The word you will have to guess has " + goal.getWordLength() + " letters.");
         sleep.sleep(2);
-        String guess = inputSystem.input("What is the first letter you have guessed?");
-        if (!goal.contains(guess.charAt(0))) {
-            currentGame.reduceState();
+        takeGuesses();
+        return finishOrRestart();
 
-            System.out.println("OOpsie, thats wrong");
-            System.out.println("Answer: " + goal.getAns());
-            System.out.println(currentGame.getAsciiState());
-        } else {
+    }
 
-            System.out.println("Correct!");
-            System.out.println(goal.getAns());
-            System.out.println(currentGame.getAsciiState());
-
-        }
-        // put comments
+    private static void takeGuesses(){
         HashSet<Character> guessedChars = new HashSet<Character>();
-        while (currentGame.getState() != 0 && !goal.isComplete()) {
 
+        // put comments
+        while (currentGame.getState() != 0 && !goal.isComplete()) {
             sleep.sleep(1);
-            String guess2 = inputSystem.input("What is your next guess?");
+            String guess2 = inputSystem.input("What is your guess?");
 
             if (guessedChars.contains(guess2.charAt(0))) {
                 System.out.println("You have already picked this!");
@@ -78,18 +69,6 @@ public class hangman {
             }
 
         }
-
-        if (goal.isComplete()) {
-            System.out.println("Congradulations on correctly guessing the word " + goalWord + "!");
-            System.out.println("You have now passed level " + diff.toLowerCase());
-            tryAgain = inputSystem.input("Would you like to try again?(y/n)").toLowerCase();
-        } else {
-            System.out.println("Game Over:(");
-            System.out.println("The word was " + goalWord);
-            System.out.println("It seems that level " + diff.toLowerCase() + " was a bit of a challenge");
-            tryAgain = inputSystem.input("Would you like to try again?(y/n)").toLowerCase();
-        }
-
     }
 
     private static difficulty setDifficulty(boolean calledAgain) {
@@ -112,6 +91,30 @@ public class hangman {
         sleep.sleep(1);
         System.out.printf("The hangman game with difficulty %s is ready\n", diff);
         return gameDifficulty;
+    }
+
+    private static boolean finishOrRestart() {
+        if (goal.isComplete()) {
+            System.out.println("Congradulations on correctly guessing the word " + goalWord + "!");
+            System.out.println("You have now passed level " + diff.toLowerCase());
+            tryAgain = inputSystem.input("Would you like to try again?(y/n)").toLowerCase();
+
+        } else {
+            System.out.println("Game Over:(");
+            System.out.println("The word was " + goalWord);
+            System.out.println("It seems that level " + diff.toLowerCase() + " was a bit of a challenge");
+            tryAgain = inputSystem.input("Would you like to try again?(y/n)").toLowerCase();
+
+        }
+        return(tryAgain.toLowerCase().equals("y"));
+    }
+    private static void reset(){
+        words = new WordBank(setDifficulty(false));
+
+        goalWord = words.randomString();
+        goal = new wordCheck("sleep");
+        currentGame = new HangmanState();
+        
     }
 
 }
