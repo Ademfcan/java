@@ -18,11 +18,11 @@ public class hangman {
         sleep.sleep(1);
         System.out.println("Try to correcly guess the word before you die!!");
         sleep.sleep(1);
-        while(Start());
+        while(Play());
 
     }
 
-    private static boolean Start() {
+    private static boolean Play() {
 
         reset();
 
@@ -112,7 +112,7 @@ public class hangman {
         words = new WordBank(setDifficulty(false));
 
         goalWord = words.randomString();
-        goal = new wordCheck("sleep");
+        goal = new wordCheck(goalWord);
         currentGame = new HangmanState();
         
     }
