@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text="Start Game">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="43.0" prefWidth="103.0" text="Start" textAlignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-width: 10;">
+         <center>
+            <GridPane alignment="CENTER" hgap="20" vgap="10">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox spacing="10">
+                     <children>
+                        <HBox spacing="5.0">
+                           <children>
+                              <Label text="Gamemode:" textFill="#191919">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Difficulty" textFill="#0f0f0f">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Lives Left:" textFill="#161616">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="LivesLeft" text="7" textFill="#141414">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <GridPane alignment="CENTER" GridPane.rowIndex="2">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button fx:id="btnA" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="A" userData="A" />
+                        <Button fx:id="btnB" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="B" userData="B" GridPane.columnIndex="1" />
+                        <Button fx:id="btnC" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="C" userData="C" GridPane.columnIndex="2" />
+                        <Button fx:id="btnD" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="D" userData="D" GridPane.columnIndex="3" />
+                        <Button fx:id="btnE" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="E" userData="E" GridPane.columnIndex="4" />
+                        <Button fx:id="btnF" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="F" userData="F" GridPane.columnIndex="5" />
+                        <Button fx:id="btnG" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="G" userData="G" GridPane.columnIndex="6" />
+                        <Button fx:id="btnH" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="H" userData="H" GridPane.rowIndex="1" />
+                        <Button fx:id="btnI" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="I" userData="I" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="btnJ" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="J" userData="J" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button fx:id="btnK" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="K" userData="K" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button fx:id="btnL" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="L" userData="L" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <Button fx:id="btnM" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="M" userData="M" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        <Button fx:id="btnN" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="N" userData="N" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                        <Button fx:id="btnO" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="O" userData="O" GridPane.rowIndex="2" />
+                        <Button fx:id="btnP" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="P" userData="P" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="btnQ" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="Q" userData="Q" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button fx:id="btnR" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="R" userData="R" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Button fx:id="btnS" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="S" userData="S" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <Button fx:id="btnT" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="T" userData="T" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        <Button fx:id="btnU" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="U" userData="U" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                        <Button fx:id="btnV" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="V" userData="V" GridPane.rowIndex="3" />
+                        <Button fx:id="btnW" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="W" userData="W" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="btnX" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="X" userData="X" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Button fx:id="btnY" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="Y" userData="Y" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Button fx:id="btnZ" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-pref-width: 50.0;" text="Z" userData="Z" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+                  <ImageView fx:id="GameImage" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../GameImages/Full.png" />
+                     </image>
+                  </ImageView>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="Progress:" textAlignment="CENTER" textFill="#121212">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="WordState" text="       " textAlignment="CENTER" textFill="#121212">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </center>
+      </BorderPane>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text="Game Over">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="43.0" prefWidth="103.0" text="Restart" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="43.0" prefWidth="103.0" text="Quit" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

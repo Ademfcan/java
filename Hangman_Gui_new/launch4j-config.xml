@@ -1,0 +1,27 @@
+<launch4jConfig>
+    <dontWrapJar>true</dontWrapJar>
+    <headerType>gui</headerType>
+    <jar>C:\Projs\java\Hangman_Gui_new\app\build\libs\app.jar</jar>
+    <outfile>C:\Projs\java\Hangman_Gui_new\app.exe</outfile>
+    <errTitle></errTitle>
+    <cmdLine></cmdLine>
+    <chdir>.</chdir>
+    <priority>normal</priority>
+    <downloadUrl>http://java.com/download</downloadUrl>
+    <supportUrl></supportUrl>
+    <customProcName>false</customProcName>
+    <stayAlive>false</stayAlive>
+    <manifest></manifest>
+    <icon>C:\Projs\java\Hangman_Gui_new\app\src\main\resources\images\HangmanICon.ico</icon>
+    <singleInstance>
+        <mutexName>MyAppMutex</mutexName>
+        <windowTitle>Hangman</windowTitle>
+    </singleInstance>
+    <jre>
+        <path>C:\Projs\java\Hangman_Gui_new\Appxe</path>
+        <minVersion>1.8.0</minVersion>
+        <maxVersion></maxVersion>
+        <jdkPreference>preferJre</jdkPreference>
+        <runtimeBits>64</runtimeBits>
+    </jre>
+</launch4jConfig>
