@@ -1,6 +1,7 @@
 package connect4gui;
 
 import javafx.animation.PathTransition;
+import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -89,6 +90,9 @@ public class MainScreenController implements Initializable {
                 XYCoordinate CurrentCircleCoords  = GameController.coords.getPreciseCoords(rowClicked,ypos);
 
                 Line path = new Line(TopCircleCoords.Xcoord,-40, CurrentCircleCoords.Xcoord, CurrentCircleCoords.Ycoord);
+                Line bigBounce = new Line(CurrentCircleCoords.Xcoord,CurrentCircleCoords.Ycoord, CurrentCircleCoords.Xcoord, CurrentCircleCoords.Ycoord-80);
+                Line smallBounce = new Line(CurrentCircleCoords.Xcoord,CurrentCircleCoords.Ycoord, CurrentCircleCoords.Xcoord, CurrentCircleCoords.Ycoord-19);
+                Line smallerBounce = new Line(CurrentCircleCoords.Xcoord,CurrentCircleCoords.Ycoord, CurrentCircleCoords.Xcoord, CurrentCircleCoords.Ycoord-10);
 
                 Circle moved = new Circle();
 
@@ -103,14 +107,48 @@ public class MainScreenController implements Initializable {
 
 
 
-                PathTransition transition = new PathTransition(Duration.seconds(1), path, moved);
+                PathTransition transition = new PathTransition(Duration.seconds(.4), path, moved);
                 transition.setCycleCount(1); // Play the transition only once
                 transition.setAutoReverse(false); // Don't reverse the animation
-                transition.setOnFinished(event1 -> {
-                    // Optionally, you can remove the circle from the AnchorPane after the animation
-                    System.out.println("Done");
+
+                PathTransition bigBounceTransition = new PathTransition(Duration.seconds(.2), bigBounce, moved);
+                bigBounceTransition.setCycleCount(2); // Play the transition only once
+                bigBounceTransition.setAutoReverse(true); // Don't reverse the animation
+
+                PathTransition smallBounceTransition = new PathTransition(Duration.seconds(.1), smallBounce, moved);
+                smallBounceTransition.setCycleCount(2); // Play the transition only once
+                smallBounceTransition.setAutoReverse(true); // Don't reverse the animation
+
+                PathTransition smallerBounceTransition = new PathTransition(Duration.seconds(.1), smallerBounce, moved);
+                smallerBounceTransition.setCycleCount(2); // Play the transition only once
+                smallerBounceTransition.setAutoReverse(true); // Don't reverse the animation
+
+
+                PauseTransition smallerPause = new PauseTransition(Duration.seconds(.2)); // 1-second delay
+                smallerPause.setOnFinished(e -> {
+                    smallerBounceTransition.play();
                 });
+
+                PauseTransition smallPause = new PauseTransition(Duration.seconds(.4)); // 1-second delay
+                smallPause.setOnFinished(e -> {
+                    smallBounceTransition.play();
+                    smallerPause.play();
+                });
+
+                PauseTransition bigPause = new PauseTransition(Duration.seconds(.35)); // 1-second delay
+                bigPause.setOnFinished(e -> {
+                    bigBounceTransition.play();
+                    smallPause.play();
+                });
+
+
+
                 transition.play();
+                bigPause.play();
+
+
+
+
 
                 if(IsRed){
                     IsRed = false;

@@ -65,7 +65,7 @@ public class GridStorage {
                 }
             }
         }
-        Winner = "Draw";
+        Winner = "Draw :(";
         return true; // No win found
 
 
