@@ -12,10 +12,10 @@ import java.util.stream.Collectors;
 public class Dictionary
 {
     String[] words = new String[112282];
-    String dicLocation = "/FxmlFiles/dic.txt";
+    String dicLocation = Dictionary.class.getResource("/FxmlFiles/dic.txt").getPath();
     public Dictionary(){
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("C:\\Projs\\java\\WordCounterGui\\app\\src\\main\\resources\\FxmlFiles\\dic.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(dicLocation));
             String nextLine = reader.readLine();
             int index = 0;
             while(nextLine != null){
