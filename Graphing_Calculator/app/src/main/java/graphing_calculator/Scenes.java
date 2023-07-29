@@ -1,16 +1,7 @@
-package connect4gui;
+package graphing_calculator;
 
 
-
-
-enum Difficulty{
-    Easy,
-    Medium,
-    Hard,
-    PvP
-
-}
- enum Scenes {
+enum Scenes {
     Start,
     Main,
     End,

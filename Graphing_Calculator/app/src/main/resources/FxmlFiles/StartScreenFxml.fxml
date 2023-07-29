@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B5E2FA;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="connect4gui.StartSceneController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B5E2FA;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphing_calculator.StartSceneController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints />
@@ -42,7 +42,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                <children>
-                  <Button fx:id="pvp" mnemonicParsing="false" onAction="#pvp" style="-fx-background-color: #2B2D42;" text="START" textFill="#f9f7f3">
+                  <Button fx:id="Start" mnemonicParsing="false" onAction="#start" style="-fx-background-color: #2B2D42;" text="START" textFill="#f9f7f3">
                      <font>
                         <Font name="Book Antiqua" size="20.0" />
                      </font>

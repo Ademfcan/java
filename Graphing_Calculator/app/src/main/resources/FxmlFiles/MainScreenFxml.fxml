@@ -1,23 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphing_calculator.MainScreenController">
    <children>
-      <Line endX="333.0" layoutX="134.0" layoutY="350.0" startX="-100.0" />
-      <Label fx:id="index1" layoutX="33.0" layoutY="366.0" text="Label" />
-      <Label fx:id="index2" layoutX="73.0" layoutY="366.0" text="Label" />
-      <Label fx:id="index3" layoutX="113.0" layoutY="366.0" text="Label" />
-      <Label fx:id="index4" layoutX="153.0" layoutY="366.0" text="Label" />
-      <Label fx:id="index5" layoutX="233.0" layoutY="366.0" text="Label" />
-      <Label fx:id="index6" layoutX="193.0" layoutY="366.0" text="Label" />
-      <Label fx:id="index7" layoutX="273.0" layoutY="366.0" text="Label" />
-      <Label fx:id="index8" layoutX="353.0" layoutY="366.0" text="Label" />
-      <Label fx:id="index9" layoutX="393.0" layoutY="366.0" text="Label" />
-      <Label fx:id="index10" layoutX="313.0" layoutY="366.0" text="Label" />
-      <Label fx:id="index11" layoutX="433.0" layoutY="366.0" text="Label" />
+      <AnchorPane fx:id="MainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="BackToHome" layoutX="500.0" layoutY="14.0" mnemonicParsing="false" onAction="#onHome" text="BackToHome" />
+            <TextField fx:id="inputField" layoutX="433.0" layoutY="51.0" />
+            <Slider fx:id="Scale" layoutX="552.0" layoutY="106.0" max="1.0" min="1.0E-4" orientation="VERTICAL" />
+            <AnchorPane fx:id="DrawingArea" layoutX="11.0" layoutY="39.0" prefHeight="300.0" prefWidth="400.0" style="-fx-border-color: black;">
+               <children>
+                  <Line fx:id="XAXIS" endX="400.0" layoutY="150.0" />
+                  <Line fx:id="YAXIS" endY="300.0" layoutX="200.0" />
+                  <Line fx:id="POSITIVEY1" endX="5.0" layoutX="200.0" layoutY="26.0" startX="-5.0" />
+                  <Line fx:id="POSITIVEY2" endX="5.0" layoutX="200.0" layoutY="52.0" startX="-5.0" />
+                  <Line fx:id="POSITIVEY3" endX="5.0" layoutX="200.0" layoutY="78.0" startX="-5.0" />
+                  <Line fx:id="POSITIVEY4" endX="5.0" layoutX="200.0" layoutY="104.0" startX="-5.0" />
+                  <Line fx:id="POSITIVEY5" endX="5.0" layoutX="200.0" layoutY="130.0" startX="-5.0" />
+                  <Line fx:id="NEGATIVEY11" endX="5.0" layoutX="200.0" layoutY="170.0" startX="-5.0" />
+                  <Line fx:id="NEGATIVEY12" endX="5.0" layoutX="200.0" layoutY="196.0" startX="-5.0" />
+                  <Line fx:id="NEGATIVEY13" endX="5.0" layoutX="200.0" layoutY="222.0" startX="-5.0" />
+                  <Line fx:id="NEGATIVEY14" endX="5.0" layoutX="200.0" layoutY="248.0" startX="-5.0" />
+                  <Line fx:id="NEGATIVEY15" endX="5.0" layoutX="200.0" layoutY="274.0" startX="-5.0" />
+                  <Line fx:id="PositiveX1" endY="5.0" layoutX="233.0" layoutY="150.0" startY="-5.0" />
+                  <Line fx:id="PositiveX11" endY="5.0" layoutX="266.0" layoutY="150.0" startY="-5.0" />
+                  <Line fx:id="PositiveX12" endY="5.0" layoutX="299.0" layoutY="150.0" startY="-5.0" />
+                  <Line fx:id="PositiveX13" endY="5.0" layoutX="332.0" layoutY="150.0" startY="-5.0" />
+                  <Line fx:id="PositiveX14" endY="5.0" layoutX="365.0" layoutY="150.0" startY="-5.0" />
+                  <Line fx:id="NegativeX1" endY="5.0" layoutX="167.0" layoutY="150.0" startY="-5.0" />
+                  <Line fx:id="NegativeX2" endY="5.0" layoutX="101.0" layoutY="150.0" startY="-5.0" />
+                  <Line fx:id="NegativeX3" endY="5.0" layoutX="68.0" layoutY="150.0" startY="-5.0" />
+                  <Line fx:id="NegativeX4" endY="5.0" layoutX="35.0" layoutY="150.0" startY="-5.0" />
+                  <Line fx:id="NegativeX21" endY="5.0" layoutX="134.0" layoutY="150.0" startY="-5.0" />
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+      <Accordion />
    </children>
-</AnchorPane>
+</VBox>
