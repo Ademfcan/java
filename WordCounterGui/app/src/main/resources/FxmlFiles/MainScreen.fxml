@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #778DA9; -fx-border-color: #778DA9; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wordcountergui.MainSceneController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="ALWAYS" />
+      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+      <RowConstraints vgrow="ALWAYS" />
+   </rowConstraints>
+   <children>
+      <VBox alignment="CENTER" spacing="10.0" GridPane.columnSpan="2">
+         <children>
+            <Label text="WordCounter" textFill="#e0e1dd">
+               <font>
+                  <Font name="Agency FB" size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox spacing="10.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+         <children>
+            <TextArea fx:id="WordInputArea" promptText="Enter your text here" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" wrapText="true"/>
+            <VBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <HBox spacing="5.0" style="-fx-pref-height: 25;">
+                     <children>
+                        <Label text="Words:" textFill="#e0e1dd">
+                           <font>
+                              <Font name="Bell MT" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="WordLabel" text="0" textFill="#e0e1dd">
+                           <font>
+                              <Font name="Bell MT" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label text="Pages:" textFill="#e0e1dd">
+                           <font>
+                              <Font name="Bell MT" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="PageLabel" text="0" textFill="#e0e1dd">
+                           <font>
+                              <Font name="Bell MT" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox spacing="5.0" style="-fx-pref-height: 25;">
+                     <children>
+                        <Label text="Grammar Errors" textFill="#e0e1dd">
+                           <font>
+                              <Font name="Bell MT" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="ErrorLabel" text="0" textFill="#e0e1dd">
+                           <font>
+                              <Font name="Bell MT" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TextArea fx:id="ErrorArea" editable="false" promptText="Your errors will appear here" wrapText="true" VBox.vgrow="ALWAYS">
+                     <VBox.vgrow>
+                        <Priority fx:value="ALWAYS" />
+                     </VBox.vgrow>
+                  </TextArea>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</GridPane>
