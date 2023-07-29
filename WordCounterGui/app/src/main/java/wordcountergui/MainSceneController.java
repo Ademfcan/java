@@ -58,34 +58,31 @@ public class MainSceneController implements Initializable {
     private void OnTextUpdate(String value){
         PauseTransition bigPause = new PauseTransition(Duration.seconds(1));
         bigPause.setOnFinished(e ->{
-            int StartIndex = value.lastIndexOf(' ', CaretPosition-1)+1;
-            int EndIndex = value.indexOf(' ', CaretPosition);
-            if (EndIndex == -1) {
-                EndIndex = value.length();
-            }
-            String excludedWord = WordInputArea.getText(StartIndex,EndIndex);
-            System.out.println("Word selected: " + excludedWord);
-            //System.out.println("Start Index = " + StartIndex);
-            //System.out.println("End index = " + EndIndex);
+
             errors.clear();
-            if(value.length()>=1){
+
+            if(value.length()>0){
                 Pattern pattern = Pattern.compile(" ");
 
 
-                Stream<String> errorStream = pattern.splitAsStream(value).filter(word -> !dic.CheckIfContains(word));
+                Stream<String> errorStream = pattern
+                        .splitAsStream(value)
+                        .filter(word -> !dic.CheckIfContains(word));
                 Long ErrCount = pattern.splitAsStream(value)
                         .filter(word -> !dic.CheckIfContains(word))
-                        .filter(word -> !word.equals(excludedWord)).count();
+                        .count();
                 errorStream.forEach(word -> errors.add(word));
 
-                Stream<String> correctWordStream = pattern.splitAsStream(value).filter(word -> dic.CheckIfContains(word));
+                Stream<String> correctWordStream = pattern
+                        .splitAsStream(value)
+                        .filter(word -> dic.CheckIfContains(word));
 
                 Long WordCount = correctWordStream.count();
                 WordLabel.setText(WordCount.toString());
                 ErrorLabel.setText(ErrCount.toString());
                 ErrorArea.setText(errors.toString());
             }
-            System.out.println("OnTextUpdate is called");
+            //System.out.println("OnTextUpdate is called");
 
         });// 1-second delay
         bigPause.play();
