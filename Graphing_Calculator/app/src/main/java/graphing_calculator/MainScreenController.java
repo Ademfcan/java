@@ -34,6 +34,7 @@ public class MainScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        inputField.setStyle("-fx-fill: #2B2D42 ; -fx-text-fill: #EDF2F4");
 
         for (int i = 0; i < 400; i++) {
 
